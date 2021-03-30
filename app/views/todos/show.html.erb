@@ -1,0 +1,12 @@
+<h1> <%= @todo.title %> </h1>
+
+<p> <%= @todo.description %> </p>
+<p> <%= @todo.deadline %> </p>
+
+<% if @task.status == true %>
+  <p>Todo completed</p>
+<% else %>
+  <p>Todo not completed</p>
+<% end %>
+
+<%= link_to 'Back', todos_path %>
