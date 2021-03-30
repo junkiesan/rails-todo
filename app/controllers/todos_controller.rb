@@ -2,7 +2,7 @@ class TodosController < ApplicationController
 before_action :set_todos, only: [:show, :edit, :update, :destroy]
   
   def index
-    @todos = Todo.all
+    @todos = Todo.order(:position)
   end
 
   def show 
@@ -32,6 +32,14 @@ before_action :set_todos, only: [:show, :edit, :update, :destroy]
     redirect_to todos_path
   end
 
+  # loop through all the items to sort and assign the new position
+  def sort
+    params[:todo].each_with_index do |id, index|
+      Todo.where(id: id).update_all(position: index + 1)
+    end
+    head :ok
+  end
+
 private
 
   def set_todos
@@ -39,7 +47,7 @@ private
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :description, :deadline, :status)
+    params.require(:todo).permit(:title, :description, :deadline, :status, :position)
   end
 
 end

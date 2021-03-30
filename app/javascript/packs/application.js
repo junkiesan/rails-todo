@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("bootstrap-datepicker")
+require("jquery-ui/ui/widget")
+require("jquery-ui/ui/widgets/sortable")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -15,3 +16,16 @@ require("bootstrap-datepicker")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).on("turbolinks:load", () => {
+  $("#todos").sortable({
+    handle: '.handle',
+    update: function(e, ui) {
+      Rails.ajax({
+        url: $(this).data("url"),
+        type: "PATCH",
+        data: $(this).sortable('serialize'),
+      });
+    }
+  });
+})
