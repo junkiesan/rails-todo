@@ -1,8 +1,8 @@
 <h1>Todolist:</h1>
 <% @todos.each do |todo| %>
-  <#% if todo.status == false %>
-  <#% else %>
-  <#% end %>
+  <% if todo.status == false %>
+  <% else %>
+  <% end %>
   <%= link_to todo.title, todo_path(todo.id) %>
 <% end %>
 
