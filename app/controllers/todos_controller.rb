@@ -21,8 +21,9 @@ before_action :set_todos, only: [:show, :edit, :update, :destroy]
   def edit
   end
 
-  def updated
+  def update
     @todo.update(todo_params)
+    @todo.save!
     redirect_to todos_path
   end
 
@@ -38,7 +39,7 @@ private
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :description, :deadline)
+    params.require(:todo).permit(:title, :description, :deadline, :status)
   end
 
 end

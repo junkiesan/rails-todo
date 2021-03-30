@@ -1,13 +1,15 @@
 <h1>Todolist:</h1>
-<% @todos.each do |todo| %>
-  <div class="list">
-    <% if todo.status == false %>
-      <i class="fa fa-square-o"></i>
-    <% else %>
-      <i class="fa fa-check-square-o"></i>
-    <% end %>
-    <%= link_to todo.title, todo_path(todo.id) %>
-  </div>
-<% end %>
+<ul class="list-group">
+  <% @todos.each do |todo| %>
+    <li class="list-group-item">
+      <% if todo.status == false %>
+        <i class="fa fa-square-o"></i>
+      <% else %>
+        <i class="fa fa-check-square-o"></i>
+      <% end %>
+      <%= link_to todo.title, todo_path(todo.id) %>
+    </li>
+  <% end %>
+</ul>
 
-<%= link_to 'Add a new todo', new_todo_path %>
+<%= link_to 'Add a new todo', new_todo_path, class: 'btn btn-primary' %>
