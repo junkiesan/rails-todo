@@ -1,14 +1,18 @@
 <h1>Todolist:</h1>
-<ul class="list-group">
+<ul class="list-group" id="todos" data-url="<%= sort_todos_path %>>
   <% @todos.each do |todo| %>
+    <%= content_tag :tr, id: dom_id(todo), class: dom_class(todo) do %>
     <li class="list-group-item">
-      <% if todo.status == false %>
-        <i class="fa fa-square-o"></i>
-      <% else %>
-        <i class="fa fa-check-square-o"></i>
-      <% end %>
-      <%= link_to todo.title, todo_path(todo.id) %>
+      <div class="handle">
+        <% if todo.status == false %>
+          <i class="fa fa-square-o handle"></i>
+        <% else %>
+          <i class="fa fa-check-square-o"></i>
+        <% end %>
+        <%= link_to todo.title, todo_path(todo.id) %>
+      </div>
     </li>
+    <% end %>
   <% end %>
 </ul>
 
