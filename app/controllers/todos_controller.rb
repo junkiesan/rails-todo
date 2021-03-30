@@ -14,8 +14,8 @@ before_action :set_todos, only: [:show, :edit, :update, :destroy]
 
   def create
     @todo = Todo.new(todo_params)
-    @todo.save
-    redirect to todos_path
+    @todo.save!
+    redirect_to todos_path
   end
 
   def edit
@@ -23,12 +23,12 @@ before_action :set_todos, only: [:show, :edit, :update, :destroy]
 
   def updated
     @todo.update(todo_params)
-    redirect to todos_path
+    redirect_to todos_path
   end
 
   def destroy
     @todo.destroy  
-    redirect to todos_path
+    redirect_to todos_path
   end
 
 private

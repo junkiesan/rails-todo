@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 # Associations
-  has_many :todos
+  # has_many :todos
   # validates :email, uniqueness: true, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

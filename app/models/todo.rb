@@ -1,6 +1,6 @@
 class Todo < ApplicationRecord
 # Associations 
-  belongs_to :user
+  # belongs_to :user
 
 # Validations
   validates :title, presence: true
