@@ -1,9 +1,13 @@
 <h1>Todolist:</h1>
 <% @todos.each do |todo| %>
-  <% if todo.status == false %>
-  <% else %>
-  <% end %>
-  <%= link_to todo.title, todo_path(todo.id) %>
+  <div class="list">
+    <% if todo.status == false %>
+      <i class="fa fa-square-o"></i>
+    <% else %>
+      <i class="fa fa-check-square-o"></i>
+    <% end %>
+    <%= link_to todo.title, todo_path(todo.id) %>
+  </div>
 <% end %>
 
 <%= link_to 'Add a new todo', new_todo_path %>
