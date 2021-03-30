@@ -1,5 +1,5 @@
 <h1>Todolist:</h1>
-<ul class="list-group" id="todos" data-url="<%= sort_todos_path %>>
+<ul class="list-group" id="todos">
   <% @todos.each do |todo| %>
     <%= content_tag :tr, id: dom_id(todo), class: dom_class(todo) do %>
     <li class="list-group-item">
