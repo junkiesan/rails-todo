@@ -1,0 +1,5 @@
+class AddStatusToTodos < ActiveRecord::Migration[6.0]
+  def change
+    add_column :todos, :status, :boolean, default: true
+  end
+end
